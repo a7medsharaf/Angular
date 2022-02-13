@@ -1,0 +1,12 @@
+<span class="label label-info">{{targetRecipe.recipeName}}</span>
+
+   
+    <table class="table table-striped">
+      <tbody>
+            <tr *ngFor="let r of targetRecipe.recipeingredients">
+                <td>{{r.ingredientName}}</td>
+                <td>{{r.ingredientAmount}}</td>
+            </tr>
+        </tbody>
+    </table>
+  

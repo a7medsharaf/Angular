@@ -1,0 +1,34 @@
+<p>servers-component works!</p>
+.
+<div class="container">
+    <div class="row-md-12">
+        <div class="col-md-5">
+            <button class="btn btn-primary" (click)="gotousers()">Load Users</button>
+        </div>
+        
+    </div>
+    
+    </div>
+    <div class="container">
+  <br>
+    <div *ngFor="let s of servers" class="row-md-5">
+        <div class="col-md-6">
+          <hr>  
+            <a class="link-info" [routerLink]="['/servers',s,'edit']" > Edit server {{s}}</a>
+<hr>
+            <a class="link-info" (click)="doqueryparam(s)"  > Edit server {{s}} by method</a>
+            
+            <hr>
+            
+        </div>
+      
+    </div>
+
+    <div class="row-md-5">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+  
+
+
+

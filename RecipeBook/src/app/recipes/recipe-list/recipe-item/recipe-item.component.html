@@ -1,0 +1,43 @@
+<div class="row">
+<div class="col-md-7">
+  <a
+  href="#"
+  class="list-group-item clearfix">{{ this.Recipedata.recipeName }}</a>
+  
+</div>
+<div class="col-md-5">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Actions
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#" (click)="emitactive(this.Recipedata)">Edit Recipe</a></li>
+    <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+    <li><a class="dropdown-item" href="#">Add to shopping list</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+
+<div class="pull-left">
+
+    
+
+
+
+
+    <p class="list-group-item-text">{{ this.Recipedata.recipeDescription }}</p>
+  </div>
+
+  
+
+  <span class="pull-right">
+    <img
+      [src]="this.Recipedata.recipeImage"
+      alt="{{ this.Recipedata.recipeName }}"
+      class="img-responsive"
+      style="max-height: 50px;">
+  </span>
+
+<hr>
+

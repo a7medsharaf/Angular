@@ -1,0 +1,34 @@
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <app-header (SelectedEvent)="Get_Selected_Section($event)"></app-header>
+  </div>
+  <br>
+
+ 
+ 
+
+
+    <div class="row" *ngIf="ShowRecipes()">
+    <div class="col-md-12">
+      <app-recipes></app-recipes>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!ShowRecipes()">
+    <div class="col-md-12">
+      <app-shoopinglist></app-shoopinglist>
+    </div>
+    </div>
+
+</div>
+
+
+
+<div class="container" *appUnless="selectedcomp==='Recipes'">
+  <p>directive works</p>
+  <p appPDirective>Copyright Ahmed Sharaf 2022</p>
+<p appPbetterDirective [fcolor]="'crimson'" [scolor]="'DarkGoldenRod'">Copyright Ahmed Sharaf 2022</p>
+</div>

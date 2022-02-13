@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-md-6">
+        <app-recipe-list (emitactiverecipeEvent)="Set_Active_Recipe($event)"></app-recipe-list>
+    </div>
+    <div class="col-md-6">
+        <app-recipe-detail [targetRecipe]="targetRecipe"></app-recipe-detail>
+    </div>
+</div>

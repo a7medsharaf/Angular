@@ -1,0 +1,13 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      Customers
+    </div>
+    <div class="col-md-7">
+      <select name="cars" id="cars" class="form-select">
+        <option *ngFor="let c of customerList" value="{{c.CID}}">{{c.CName}}</option>
+      </select>
+    </div>
+  </div>
+</div>

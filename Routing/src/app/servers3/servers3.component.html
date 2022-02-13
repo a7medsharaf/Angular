@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let s of Servers3">
+                    
+                    <button class="btn btn-primary" (click)="editserver3(s.serverID)">Edit  {{s.serverName}}</button>
+                    
+                </li>
+              </ul>
+            
+        </div>
+        <div class="col-sm-10"><router-outlet></router-outlet></div>
+    </div>
+</div>
+
