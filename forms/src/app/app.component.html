@@ -1,34 +1,65 @@
 <p>Register a new user</p>
 <br>
 <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <div id="userdata">
-  <div class="container form-group">
-    <label>User Name</label>
-    <input type="text" id="username" class="form-control" ngModel name="username" required>
-    <br>
-    <button class="btn btn-primary" type="button">Suggest a Username</button>
-  </div>
- <br>
-  <div class="container form-group">
+ 
+  <div class="container form-group" ngModelGroup="UserData" #UserData="ngModelGroup">
+    <div class="row" *ngIf="!UserData.valid">
+      <span>user Data is Invalid</span>
+    </div>
     <div class="row">
-    <label>Email</label>
-    <input type="text" id="email" class="form-control" ngModel name="email" required email>
-  </div>
-  <div class="row">
-    <label>Secret question</label>
-    <select ngModel name="secret" id="secret" class="form-control" required>
-      <option value="pet">your first pet</option>
-      <option value="teacher">your first teachert</option>
-    </select>
+      <div class="col-2">
+        <label>User Name</label>
+      </div>
+      <div class="col-7">
+        <input type="text" id="username" class="form-control" [(ngModel)]="defaultname" name="username" required>
+      </div>
+      <div class="col-3">
+        <button class="btn btn-primary" type="button">Suggest a Username</button>
+      </div>
+    
+    
+   </div>
+  
+    <div class="row"><br> </div>
+  
+
+ 
+    <div class="row">
+      <div class="col-2">
+        <label>Email</label>
+      </div>
+    <div class="col-7">
+      <input type="text" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+    </div>
+    <div class="row">
+      <span *ngIf="!email.valid && email.touched">Please enter a valid email</span>
+    </div>
     
   </div>
+</div>
+<br>
+<div class="container form-group" ngModelGroup="Usersecret" #Usersecret="ngModelGroup">
+  <div class="row">
+    <div class="col-2">
+      <label>Secret question</label>
+    </div>
+    <div class="col-7">
+      <select ngModel name="secret" id="secret" class="form-control" required>
+        <option value="pet">your first pet</option>
+        <option value="teacher">your first teachert</option>
+      </select>
+    </div>
+    
+    
+  </div>
+</div>
   <br>
   <div class="row">
     <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
   </div>
-  </div>
   
-</div>
+  
+
 
 
 </form>
