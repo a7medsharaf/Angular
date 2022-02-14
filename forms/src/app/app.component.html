@@ -14,7 +14,7 @@
         <input type="text" id="username" class="form-control" [(ngModel)]="defaultname" name="username" required>
       </div>
       <div class="col-3">
-        <button class="btn btn-primary" type="button">Suggest a Username</button>
+        <button class="btn btn-primary" type="button" (click)="onsuggest()">Suggest a Username</button>
       </div>
     
     
@@ -54,8 +54,17 @@
   </div>
 </div>
   <br>
-  <div class="row">
-    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+
+  <div *ngFor="let g of gender" class="radio container">
+
+    <input type="radio" ngModel name="gender" [value]="g">
+    {{g}}
+  </div>
+  <div class="container">
+    <div class="row">
+      <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+    </div>
+    
   </div>
   
   
