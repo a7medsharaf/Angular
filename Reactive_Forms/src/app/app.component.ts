@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AbstractControl, FormArray, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,AfterViewInit {
+  ngAfterViewInit(): void {
+   
+   
+  }
 
   forbiddennames:string[]=['khawal','3ars'];
   errorsarr:string[]=[];
@@ -16,11 +20,25 @@ export class AppComponent implements OnInit {
 
       'userData':new FormGroup({
      'username':new FormControl(null,[Validators.required,this.forbidden.bind(this)]),
-      'useremail':new FormControl(null,[Validators.required,Validators.email]),
+      'useremail':new FormControl(null,[Validators.required,Validators.email],[this.forbiddenmailasync]),
       'usergender':new FormControl('Female')
     }),
     'hobbies':new FormArray([])
     })
+
+    this.signupform.valueChanges.subscribe(
+      (val=>{
+        console.log(val);
+      })
+    )
+
+    this.signupform.statusChanges.subscribe(
+      (status=>{
+        console.log(status);
+      })
+    )
+    this.setform();
+
   }
   title = 'Reactive_Forms';
    GenderArr:string[]=['Male','Female'];
@@ -85,5 +103,33 @@ export class AppComponent implements OnInit {
         return null;
       }
      
+   }
+
+   forbiddenmailasync(C:AbstractControl):Promise<ValidationErrors|any>
+   {
+     const mypromise=new Promise((resolve,reject)=>{
+       setTimeout(() => {
+         if(C.value=='test@test.com')
+         {
+           console.log('inside true')
+           resolve({forbiddenmail:true});
+         }
+         else
+         {
+          console.log(C.value+' inside false') 
+          resolve(null) ;
+         }
+       }, 5000);
+     });
+
+     return mypromise;
+   }
+
+   setform(){
+     let myobj={
+       userData:{username:'Ahmed Sharaf',useremail:'a7med.sharaf@gmail.com',usergender:'Male'}
+     
+     }
+     this.signupform.patchValue(myobj);
    }
 }
