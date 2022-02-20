@@ -1,0 +1,55 @@
+<br>
+<div class="container">
+  <input type="text" class="form-control" [(ngModel)]="searchval">
+  <br>
+  <button type="button" class="btn btn-primary" (click)="onclick()">Find Related Moview</button>
+  <br>
+  <br>
+ <table class="table table-dark">
+<thead>
+  <tr>
+  <th>Movie Name</th>
+  <th>Meatcritic Score</th>
+</tr>
+</thead>
+
+<tbody>
+  <!-- <tr>{{movie.movieName}}</tr>
+  <tr>{{movie.Metascore}}</tr> -->
+  <tr>
+  <td>{{movie.movieName}}</td>
+  <td>{{movie.Metascore}}</td>
+  </tr>
+</tbody>
+ </table>
+
+ <br>
+  <button type="button" class="btn btn-primary" (click)="onclickrecord()">Record in DB</button>
+  <br>
+  <br>
+  <button type="button" class="btn btn-primary" (click)="onclickdelete()">Delete all</button>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+       
+      <th>Movie Name</th>
+      <th>Meatcritic Score</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+      <!-- <tr>{{movie.movieName}}</tr>
+      <tr>{{movie.Metascore}}</tr> -->
+      <tr *ngFor="let M of mystoredmovies">
+       
+      <td>{{M.movieName}}</td>
+      <td>{{M.Metascore}}</td>
+      </tr>
+    </tbody>
+     </table>
+    
+</div>
+<div class="container loader">
+
+</div>
