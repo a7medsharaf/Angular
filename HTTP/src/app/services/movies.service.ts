@@ -59,7 +59,8 @@ export class Movies
     //   )
       .subscribe(response=>{
           
-          for(const key in response)
+      
+        for(const key in response)
           {
                   console.log(key);
                   console.log(response[key])
