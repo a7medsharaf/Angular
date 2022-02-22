@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { SafeBoxsGridComponent } from './safe-boxs-grid/safe-boxs-grid.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SafeBoxsGridComponent,
+    UsersComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

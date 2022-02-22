@@ -1,0 +1,67 @@
+<div class="container">
+    <table class="table table-striped">
+       <tbody>
+
+        <tr>
+        <td>
+            
+            Branch Code
+        </td>
+        <td class="col-md-3">
+            {{mybranch.Code}}
+        </td>
+        <td class="col-md-3">
+            
+        </td>
+        </tr>
+
+        <tr>
+            <td class="col-md-3">
+                Branch Manager
+            </td>
+            <td>
+                {{mybranch.Manager.Name}}
+            </td>
+            <td class="col-md-3">
+            
+            </td>
+            </tr>
+       </tbody>
+    </table>
+     <br>
+     <span class="label success">Authorized Users</span>
+      
+     <br>
+
+     <br>
+     <table class="table table-striped" *ngFor="let U of mybranch.Users">
+        <tbody>
+ 
+         <tr>
+         <td class="col-md-3">
+             User Code
+         </td>
+         <td class="col-md-3"> 
+             {{U.NT}}
+         </td>
+         <td class="col-md-3">
+            <button class="btn btn-danger">Delete</button>
+         </td>
+         </tr>
+ 
+         <tr>
+             <td class="col-md-3">
+                Name
+             </td>
+             <td class="col-md-3">
+                {{U.Name}}
+             </td>
+             <td class="col-md-3">
+              
+             </td>
+             </tr>
+        </tbody>
+     </table>
+     <button class="btn btn-primary">Add User</button>
+
+</div>
