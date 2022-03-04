@@ -2,13 +2,15 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from "./login/login.component";
 import { SafeBoxsGridComponent } from "./safe-boxs-grid/safe-boxs-grid.component";
 import { UsersComponent } from "./users/users.component";
 
 const approutes:Routes=[
     {path:'',component:SafeBoxsGridComponent},
-     {path:'Grid/:Branch',component:SafeBoxsGridComponent},
-     {path:'Users',component:UsersComponent}
+     {path:'Grid',component:SafeBoxsGridComponent},
+     {path:'Users',component:UsersComponent},
+     {path:'Login',component:LoginComponent}
     // {path:'servers',component:ServersComponentComponent,children:[
     //   {path:':id/edit',component:EditserverComponent}  
     // ]},

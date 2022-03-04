@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SafeBox } from '../Models/SafeBox.model';
 import { SafeBoxsService } from '../services/SafeBoxs.service';
 import { ActivatedRoute } from '@angular/router';
+import { UsersAdmin } from '../services/UsersAdmin.service';
+import { User } from '../Models/User.model';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-safe-boxs-grid',
   templateUrl: './safe-boxs-grid.component.html',
@@ -11,21 +14,38 @@ export class SafeBoxsGridComponent implements OnInit {
   @Input() Branch='';
   filter:string='';
   public show = true;
+  Loggedinuser:User=new User();
+  Sub:Subscription=new Subscription;;
 
   SafeBoxes:SafeBox[]=[];
   SafeBoxesCopy:SafeBox[]=[];
-  constructor(private AR:ActivatedRoute,private SafeBoxService:SafeBoxsService) { }
+  constructor(private AR:ActivatedRoute,private SafeBoxService:SafeBoxsService,private UA:UsersAdmin) { this.SafeBoxes=[]}
 
   ngOnInit(): void {
-    console.log('Recived Branch '+this.AR.snapshot.params['Branch'])
-    console.log(this.SafeBoxService.GetBranchSafeBoxes(this.AR.snapshot.params['Branch']));
-    this.SafeBoxes=this.SafeBoxService.GetBranchSafeBoxes(this.AR.snapshot.params['Branch']);
-
-    for (var i = 0; i < this.SafeBoxes.length; i++) {
-      this.SafeBoxesCopy[i] = this.SafeBoxes[i];
-    }
+    this.Sub.add(this.UA.Usersubject.subscribe(res=>this.Loggedinuser=res));
 
 
+    this.SafeBoxService.GetBranchSafeBoxes(this.Loggedinuser.Branch)
+    .subscribe(
+      response=>{
+        console.log("response");
+        console.log(response);
+         for(const key in response)
+         {
+                if(response[key].holdingBranch===this.Loggedinuser.Branch)
+                 this.SafeBoxes.push(response[key]);
+         }
+         this.SafeBoxesCopy=[];
+         for (var i = 0; i < this.SafeBoxes.length; i++) {
+          this.SafeBoxesCopy[i] = this.SafeBoxes[i];
+        }
+      }
+     
+  );
+  console.log(this.SafeBoxes);
+    
+
+    console.log(this.SafeBoxesCopy);
     
   }
 
@@ -66,5 +86,7 @@ export class SafeBoxsGridComponent implements OnInit {
     this.show = false;
     setTimeout(() => this.show = true);
   }
+
+  
 
 }

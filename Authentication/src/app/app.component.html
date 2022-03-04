@@ -1,23 +1,36 @@
+
+<div class="container">
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item" routerLinkActive="Active">
+              <a class="nav-link"  (click)="ViewGrid()" >Safes</a>
+            </li>
+            
+            <li class="nav-item" routerLinkActive="Active">
+              <a class="nav-link"  routerLink="/Users" >Users</a>
+            </li>
+          
+           
+          </ul>
+      </div>
+     
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+          <ul class="navbar-nav ms-auto">
+             
+              <li class="nav-item">
+                <a class="nav-link" (click)="log_title()" routerLink="/Login" >{{Loginlinktitle}}</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+</div>
 <br>
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-<ul class="nav nav-tabs">
-  <li class="nav-item" routerLinkActive="Active">
-    <a class="nav-link"  (click)="ViewGrid(this.LoggedinUser.Branch)" >Safes</a>
-  </li>
-  
-  <li class="nav-item" routerLinkActive="Active">
-    <a class="nav-link"  routerLink="/Users" >Users</a>
-  </li>
-
-
-</ul>
-</div>
-</div>
-
-<div class="container-fluid mt-3">
   <router-outlet></router-outlet>
 </div>
 
-</div>

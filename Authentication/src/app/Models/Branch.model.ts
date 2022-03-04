@@ -3,13 +3,13 @@ import { User } from "./User.model";
 export class Branch{
     public Code:string="";
    public  Users:User[]=[];
-   public  Manager:User={NT:"",Branch:"",Name:""};
+   public  Manager:User;
 
     constructor()
     {
         this.Code="";
         this.Users=[];
-        this.Manager={NT:"",Branch:"",Name:""};
+        this.Manager=new User();
     }
   
 
