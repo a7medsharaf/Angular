@@ -1,0 +1,62 @@
+<form #form="ngForm">
+    <div class="container mt-3 col-6">
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input type="text" class="form-control" id="Name"  name="Name" placeholder="Enter name" [(ngModel)]="myform.Name">
+    </div>
+
+    
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1"  name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="myform.exampleInputEmail1">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="defaultCheck1" [(ngModel)]="myform.defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Email specific offers
+        </label>
+      </div>
+<br>
+  <p>User Default Style</p>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked [(ngModel)]="myform.exampleRadios">
+        <label class="form-check-label" for="exampleRadios1">
+          Light
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" [(ngModel)]="myform.exampleRadios">
+        <label class="form-check-label" for="exampleRadios2">
+         dark
+        </label>
+      </div>
+
+      <br>
+      
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Subscription type</label>
+        <select class="form-control" id="exampleFormControlSelect1" name="exampleFormControlSelect1" [(ngModel)]="myform.exampleFormControlSelect1">
+          <option>Daily</option>
+          <option>Monthly</option>
+          <option>yearly</option>
+        </select>
+      </div>
+      
+
+      <div class="form-group mt-3">
+        <label for="TA">With textarea</label>
+        
+        <textarea id="TA" name="TA" class="form-control" aria-label="TA" [(ngModel)]="myform.TA"></textarea>
+      </div>
+
+
+    </div>
+    
+    </form>
+    {{myformoriginal | json}}
+    {{myform | json}}
+
+    

@@ -9,19 +9,74 @@
 </head>
 
 <body>
+<div class="container mb-2">
+  <form>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationServer01">First name</label>
+        <input type="text" class="form-control is-valid mb-3" id="validationServer01" value="Mark" required>
+        <input type="text" class="form-control is-invalid" id="validationServer02" value="Mark" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
 
+      </div>
+    </div>
+  </form>
+</div>
+  <div class="container">
+  <div class="card">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+  <div class="container">
+    <h2>Modal Example</h2>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
     <main role="main">
-        <div>
+        <div class="container">
+          
+        <div class="row">
             <h1>Apple pie
                 <small>Our famous, number-one selling pie.</small>
             </h1> 
-            
-            <div >
-                <div>
-                    <img src="/assets/images/products/applepie.jpg" alt="Image of apple pie">
+          </div>
+            <div class ="row">
+                <div class="col-md-8">
+                    <img class="img-fluid rounded" src="/assets/images/products/applepie.jpg" alt="Image of apple pie">
                 </div>
 
-                <div>
+                <div class="col-md-4">
                     <h3>About this pie</h3>
                     <p>Sweet ice cream jelly beans lemon drops. Pastry toffee fruitcake gingerbread jelly-o.
                         Lollipop sesame snaps muffin. Macaroon halvah marshmallow sesame snaps sugar plum dragée.
@@ -34,17 +89,46 @@
                         <li>Milk</li>
                     </ul>
                     <div>
-                        <div>
-                            <strong>$14.95</strong>
-                        </div>
-                        <div >
-                            <a type="button" class="btn btn-success m-4" href="shoppingbasket.html">
-                                Add to basket
-                            </a>
-                        </div>
+                       <div class="row">
+                        <div class="col-md-4">
+                          <strong>$14.95</strong>
+                      </div>
+                      <div class="col-md-8">
+                          <a type="button" class="btn btn-info float-right" href="shoppingbasket.html">
+                              Add to basket
+                          </a>
+                      </div>
+                       </div>
                     </div>
                 </div>
             </div>
+
+            <div class="row my-4">
+              <div class="col-md-3 col-sm-6">
+                  <a href="applepie.html">
+                      <img class="img-fluid" src="/assets/images/products/strawberrypiesmall.jpg" alt="">
+                  </a>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                  <a href="applepie.html">
+                      <img class="img-fluid" src="/assets/images/products/rhubarbpiesmall.jpg" alt="">
+                  </a>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                  <a href="applepie.html">
+                      <img class="img-fluid" src="/assets/images/products/peachpiesmall.jpg" alt="">
+                  </a>
+              </div>
+
+              <div class="col-md-3 col-sm-6">
+                  <a href="applepie.html">
+                      <img class="img-fluid" src="/assets/images/products/cranberrypiesmall.jpg" alt="">
+                  </a>
+              </div>
+          </div>
+
         </div>
     </main>
 </body>
