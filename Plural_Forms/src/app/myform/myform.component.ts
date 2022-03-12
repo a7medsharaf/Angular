@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { formInterface } from '../Interfaces/Form.interface';
 
 @Component({
@@ -8,9 +9,9 @@ import { formInterface } from '../Interfaces/Form.interface';
 })
 export class MyformComponent implements OnInit {
 
-myformoriginal:formInterface={ Name:"ahmed",
-exampleInputEmail1:"a@s.a",
-TA:"aa",
+myformoriginal:formInterface={ Name:"",
+exampleInputEmail1:"",
+TA:"",
 defaultCheck1:true,
 exampleFormControlSelect1:"Monthly",
 exampleRadios:"option2"
@@ -22,6 +23,13 @@ myform:formInterface={...this.myformoriginal};
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onsubmit(form:NgForm)
+  {
+    console.log(form.valid);
+    console.log(form.controls);
+    console.log(form.value);
   }
 
 }
