@@ -1,0 +1,43 @@
+<form [formGroup]="signupform" (ngSubmit)="onsubmit()">
+    <div class="container">
+        <div class="mb-3">
+            <label for="UserName" class="form-label">User Name</label>
+            <input type="text" class="form-control" id="UserName" placeholder="MyName" formControlName="UserName">
+          </div>
+          <div class="mb-3">
+            <label for="Notes" class="form-label">Notes</label>
+            <textarea class="form-control" id="Notes" rows="3" formControlName="Notes"></textarea>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="sendCatalog" formControlName="sendCatalog">
+            <label class="form-check-label" for="sendCatalog">
+              Send Catalog
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="phone" placeholder="MyName" formControlName="phone">
+          </div>
+          <div   *ngIf="signupform.get('phone').invalid && signupform.get('phone').touched">
+            <p class="err">Please choose a phone</p>
+          </div>
+
+          
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="SMS" id="SMS" formControlName="report" (click)="checkreport('SMS')">
+            <label class="form-check-label" for="flexRadioDefault1">
+              SMS
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="Email" id="Email"  formControlName="report" (click)="checkreport('Email')">
+            <label class="form-check-label" for="flexRadioDefault2">
+              Email
+            </label>
+          </div>
+
+
+       <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+    
+</form>

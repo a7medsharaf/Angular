@@ -16,6 +16,10 @@
       <span class="badge bg-danger" *ngIf="!signupform.get('userData.username')?.valid && signupform.touched">Invalid UserName</span>
 
     </div>
+
+    
+
+
   </div>
   <br>
   <div *ngIf="usernamevalidators() && !signupform.get('userData.username')?.valid && signupform.touched">
@@ -63,3 +67,6 @@
 </div>
 </form>
 </div>
+
+<hr>
+<app-formbuilder></app-formbuilder>

@@ -16,6 +16,8 @@ export class AppComponent implements OnInit,AfterViewInit {
   errorsarr:string[]=[];
   signupform:FormGroup;
   ngOnInit(): void {
+
+    
     this.signupform=new FormGroup({
 
       'userData':new FormGroup({
@@ -42,6 +44,7 @@ export class AppComponent implements OnInit,AfterViewInit {
   }
   title = 'Reactive_Forms';
    GenderArr:string[]=['Male','Female'];
+   
    onsubmit()
    {
      if(this.signupform.valid)
@@ -90,7 +93,7 @@ export class AppComponent implements OnInit,AfterViewInit {
     return this.signupform.get('hobbies') as FormArray
    }
 
-   forbidden(C:FormControl)
+   forbidden(C:FormControl):{[s:string]:boolean}|null
    {
       if(this.forbiddennames.includes(C.value) )
       {
@@ -131,5 +134,6 @@ export class AppComponent implements OnInit,AfterViewInit {
      
      }
      this.signupform.patchValue(myobj);
+     
    }
 }
